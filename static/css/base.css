@@ -1,0 +1,333 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.navbar-brand{
+    font-size: 2.5rem;
+    font-family: 'Kaushan Script', cursive;
+    transform: translateX(-10%);
+    color: white;
+}
+
+.A{
+    text-align: right;
+    margin-top: +15px;
+    margin-right: +15px;
+    color: orchid;
+    text-decoration: none;
+    transform: translateX(190%);
+    font-size: 1.5rem;
+    position:absolute; right:490px;
+    font-weight: bold;
+}
+.main2 A{
+
+    color: red;
+
+}
+
+.main2 h1{
+
+    color: white;
+
+}
+
+.B{
+    text-align: right;
+    margin-top: +15px;
+    margin-right: +15px;
+    color: orchid;
+    text-decoration: none;
+    transform: translateX(190%);
+    font-size: 1.5rem;
+    position:absolute; right:775px;
+    font-weight: bold;
+}
+
+.C{
+    text-align: right;
+    margin-top: +15px;
+    margin-right: +15px;
+    color: orchid;
+    text-decoration: none;
+    transform: translateX(190%);
+    font-size: 1.5rem;
+    position:absolute; right:675px;
+    font-weight: bold;
+}
+
+.main{
+background: url('../css/img/texture.jpg');
+background-size: cover;
+
+
+background-position: 50% 50%;
+
+background-size: cover;
+background-attachment: fixed;
+}
+.main2{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+
+
+background-position: 50% 50%;
+
+background-size: cover;
+background-attachment: fixed;
+}
+
+.main3{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+
+
+background-position: 50% 50%;
+
+background-size: cover;
+background-attachment: fixed;
+}
+
+.main4{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+background-position-y: bottom;
+
+background-position: 100% 100%;
+
+background-size: cover;
+background-attachment: fixed;
+
+
+}
+.main3 B{
+
+    color: red;
+
+}
+.main4 A{
+
+    color: red;
+
+}
+
+.main h1{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-left: 2px;
+}
+
+.main2 h1{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-left: 2px;
+}
+
+.main3 h1{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    color: white;
+    text-align: center;
+    margin-top: 120px;
+}
+.main3 h2{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.intru{
+    text-align: center;
+    margin-left: 30px;
+}
+.main h2{
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-justify: auto;
+    margin-left: 60px;
+    margin-right: 45px;
+}
+.img-fluid{
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    transition: all 0.3s;
+}
+.img-fluid:hover{
+    transform: scale(1.25);
+}
+.photos{
+   backdrop-filter: blur(2px);
+}
+
+.main h3{
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    color: white;
+    font-size: 1rem;
+    transform: translateX(3%);
+    text-decoration: none;
+}
+.main h4{
+    color: white;
+    font-size: 0.7rem;
+    transform: translateX(3%);
+}
+.main2 h3{
+     font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    color: white;
+    font-size: 1rem;
+    transform: translateX(3%);
+}
+
+.main2 h4{
+    color: white;
+    font-size: 0.7rem;
+    transform: translateX(3%);
+}
+.pic-fluid{
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    transform: translateX(3%);
+
+}
+.pic-fluid{
+
+    display: flex;
+}
+
+.main button{
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 24px;
+    padding: 15px 32px;
+    border-radius: 2px;
+}
+
+.main button a{
+  text-decoration: none!important;
+  color: white;
+}
+
+.main button:hover a{
+  color: black;
+  background: none;
+}
+
+.terms{
+    background-color: black;
+    color: white;
+}
+.col {
+    text-align: center;
+}
+
+.col h7{
+    text-align: center;
+    color: white;
+    margin: 10px;
+
+}
+
+.fu {
+
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+  border: 0;
+}
+
+
+
+.fa:hover {
+  opacity: 100;
+}
+.fa{
+    text-decoration: none;
+    color: white;
+}
+
+.E input{
+      height: 50px;
+      width: 25%;
+      margin: 0 auto;
+      display: block;
+      outline: none;
+      background: white;
+      color: black;
+      font-weight: 600;
+      border: 2px solid white;
+}
+
+.btn2{
+    height: 50px;
+    width: 120px;
+    font-weight: 600;
+    border: 2px solid red;
+    margin: 0 auto;
+    display: block;
+    background: red;
+    color: white;
+    margin-top: 12px;
+}
+
+
+.main4 h2{
+    color: white;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 1rem;
+    margin-top: 120px;
+}
+.main4 h3{
+    color: white;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 2rem;
+    margin-top: 50px;
+}
+.main4 h4{
+    color: white;
+    text-align-last: left;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 50px;
+    text-align: justify;
+    text-justify: inter-word;
+     margin-left: 45px;
+    margin-right: 45px;
+
+}
+.picture-fluid{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 50px;
+}

@@ -1,0 +1,7 @@
+.home-bg{
+background: url('../css/img/texture.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-size: cover;
+background-attachment: fixed;
+}

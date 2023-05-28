@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Seether | News</title>
+</head>
+<body>
+<section class="main2">
+
+    <div class="container">
+      <br/>
+    <a class="navbar-brand" href="{% url 'home' %}">SEETHER</a>
+
+    <a class="A" href="{% url 'join-maling-list' %}">JOIN MAILING LIST</a>
+    <a class="B" href="{% url 'home' %}">HOME</a>
+    <a class="C" href="{% url 'all_news' %}">NEWS</a>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <section class="latest news">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-4 m-auto text-center">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <h1>NEWS</h1>
+                    <br/>
+                </div>
+                <div class="row">
+
+                        {% for news in news_list %}
+
+                        <div class="col-lg-4 col-sm-6">
+                        <img src="{{ news.picture.url }}" class="pic-fluid" alt="Responsive image">
+                            <h3><a href="{% url 'post_detail' news.pk %}" style="text-decoration:none; color:white;">{{ news.title }}</a></h3>
+
+                            <h4>{{ news.created }}</h4>
+                         </div>
+                        {% endfor %}
+
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+
+
+        </div>
+    </section>
+ </section>
+<section class="terms py-5">
+
+          <div class="fu">
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-youtube"></a>
+              <a href="#" class="fa fa-instagram"></a>
+              <a href="#" class="fa fa-soundcloud"></a>
+          </div>
+          <br/>
+
+            <div class="row">
+              <div class="col">
+                <h7 >PRIVACY</h7>
+                <h7 >TERMS</h7>
+                <h7 >CONTACT</h7>
+              </div>
+
+            </div>
+
+</section>
+</body>
+</html>

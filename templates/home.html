@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% load static %}
+        {% block title %}
+            Seether | Official Website
+        {% endblock %}
+{% block content %}
+
+    <br/>
+    <br/>
+    <br/>
+    <h1 class="intru">DISCLAIMER 20TH ANNIVERSARY DELUXE EDITION</h1>
+    <br/>
+    <center><img src="{% static 'css/img/logo3.jpg'%}" class="img-luid" alt=""></center>
+    <br/>
+    <br/>
+
+
+    <section class="about">
+        <div class="container">
+            <h2>
+                {% for item in about_me_records%}
+                {{ item.body }}
+                <br/>
+                <br/>
+                {% endfor %}
+            </h2>
+        </div>
+    </section>
+<br/>
+<br/>
+<br/>
+<br/>
+    <section class="photos">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-4 m-auto text-center">
+                    <h1>PHOTOS</h1>
+                </div>
+                <div class="row">
+
+                        {% for post in post_list %}
+                        {% if post.image %}
+                        <div class="col-lg-4 col-sm-6">
+                        <img src="{{ post.image.url }}" class="img-fluid" alt="Responsive image">
+                        {% endif %}
+                         </div>
+                        {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <section class="latest news">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-4 m-auto text-center">
+                    <h1>LATEST NEWS</h1>
+                    <br/>
+                </div>
+                <div class="row">
+
+                        {% for element in seether_news %}
+
+                        <div class="col-lg-4 col-sm-6">
+                        <img src="{{ element.picture.url }}" class="pic-fluid" alt="Responsive image">
+                            <h3><a href="{% url 'post_detail' element.pk %}" style="text-decoration:none; color:white;">{{ element.title }}</a></h3>
+
+                            <h4>{{ element.created }}</h4>
+                         </div>
+                        {% endfor %}
+
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="col-lg-6 text-center m-auto">
+                    <button type="button" class="btn btn-outline-light btn-lg" ><a href="{% url 'all_news' %}">SEE MORE</a></button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+
+
+
+{% endblock content %}

@@ -1,7 +1,97 @@
-.home-bg{
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.home-page-body{
 background: url('../css/img/texture.jpg');
 background-size: cover;
 background-position: 50% 50%;
 background-size: cover;
 background-attachment: fixed;
+}
+.nav{
+background: url('../css/img/texture.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-size: cover;
+background-attachment: fixed;
+}
+h1{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-left: 2px;
+}
+h2{
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-justify: auto;
+    margin-left: 60px;
+    margin-right: 45px;
+}
+h3{
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    color: white;
+    font-size: 1rem;
+    transform: translateX(3%);
+    text-decoration: none;
+}
+h4{
+    color: white;
+    font-size: 0.7rem;
+    transform: translateX(3%);
+}
+button{
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 24px;
+    padding: 15px 32px;
+    border-radius: 2px;
+}
+
+button a{
+  text-decoration: none!important;
+  color: white;
+}
+
+button:hover a{
+  color: black;
+  background: none;
+}
+.photos{
+   backdrop-filter: blur(2px);
+}
+.pic-fluid{
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    transform: translateX(3%);
+
+}
+.pic-fluid{
+
+    display: flex;
+}
+.img-fluid{
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    transition: all 0.3s;
+}
+.img-fluid:hover{
+    transform: scale(1.25);
 }

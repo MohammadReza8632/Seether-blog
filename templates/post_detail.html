@@ -1,42 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends "base.html" %}
 {% load static %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Play&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block title %}
+            Seether | {{news.title}}
+{% endblock %}
+{% block css_files %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{{news.title}}</title>
-</head>
+            <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
 
-<body>
-<section class="main4">
-
-    <div class="container">
-      <br/>
-    <a class="navbar-brand" href="{% url 'home' %}">SEETHER</a>
-
-    <a class="A" href="{% url 'join-maling-list' %}">JOIN MAILING LIST</a>
-    <a class="B" href="{% url 'home' %}">HOME</a>
-    <a class="C" href="{% url 'all_news' %}">NEWS</a>
-    </div>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <section class="post-entry">
+{% block content %}
+<section class="post-detail-body">
     <h2>{{ news.created }}</h2>
     <h3><p>{{ news.title }}</p></h3>
     {% if news.picture %}
@@ -46,26 +22,7 @@
     <h4><p>{{ news.content }}</p></h4>
         <br/>
         <br/>
-    </section>
  </section>
-<section class="terms py-5">
-          <div class="fu">
-              <a href="#" class="fa fa-facebook"></a>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-youtube"></a>
-              <a href="#" class="fa fa-instagram"></a>
-              <a href="#" class="fa fa-soundcloud"></a>
-          </div>
-          <br/>
+{% endblock content %}
 
-            <div class="row">
-              <div class="col">
-                <h7 >PRIVACY</h7>
-                <h7 >TERMS</h7>
-                <h7 >CONTACT</h7>
-              </div>
-            </div>
 
-</section>
-</body>
-</html>

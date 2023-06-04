@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, TemplateView
-from .models import Post, PlainText, News
+from .models import Post, PlainText, News, Subscribers
+from django.views.generic.edit import CreateView
+from .forms import SubscribersForm, MailMessageForm
+from django.core.mail import send_mail
 
 
 class BlogListView(ListView):
@@ -23,3 +26,24 @@ class AllNewsView(ListView):
 class BlogDetailView(DetailView):
     model = News
     template_name = "post_detail.html"
+
+
+# class EmailSubscription(CreateView):
+# model = Subscribers
+# template_name = "join-maling-list.html"
+# fields = ["email", ]
+
+def mailing(request):
+    if request.method == 'POST':
+        form = SubscribersForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('join-mailing-list')
+    else:
+        form = SubscribersForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'join-mailing-list.html', context)
+
+

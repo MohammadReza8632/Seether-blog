@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, PlainText, News
+from .models import Post, PlainText, News, Subscribers, MailMessage
 
 
 @admin.register(Post)
@@ -20,3 +20,8 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     date_hierarchy = 'created'
     ordering = ['created']
+
+
+admin.site.register(Subscribers)
+admin.site.register(MailMessage)
+

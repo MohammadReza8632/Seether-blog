@@ -1,0 +1,56 @@
+.post-detail-body{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-size: cover;
+background-attachment: fixed;
+}
+.nav{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+background-position-y: bottom;
+
+background-position: 100% 100%;
+
+background-size: cover;
+background-attachment: fixed;
+}
+.nav A{
+    color: red;
+}
+h2{
+    color: white;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 1rem;
+    margin-top: 0px;
+    padding-top: 125px;
+}
+h3{
+     color: white;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 2rem;
+    margin-top: 50px;
+}
+h4{
+    color: white;
+    text-align-last: left;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Play', sans-serif;
+    font-size: 1.3rem;
+    margin-top: 50px;
+    text-align: justify;
+    text-justify: inter-word;
+     margin-left: 45px;
+    margin-right: 45px;
+}
+.picture-fluid{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 50px;
+}

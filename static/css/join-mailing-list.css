@@ -1,0 +1,65 @@
+.mailing-body{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-size: cover;
+background-attachment: fixed;
+}
+.nav{
+background: url('../css/img/grey.jpg');
+background-size: cover;
+background-position: 50% 50%;
+background-size: cover;
+background-attachment: fixed;
+}
+.nav A{
+    color: red;
+}
+h1{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    color: white;
+    text-align: center;
+    padding-top: 120px;
+}
+h2{
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.E{
+      height: 50px;
+      width: 25%;
+      margin: 0 auto;
+      display: block;
+      outline: none;
+      background: white;
+      color: black;
+      font-weight: 600;
+      border: 2px solid white;
+}
+.F{
+    outline: none;
+    height: 50px;
+    display: block;
+    padding-left: 510px;
+    line-height:350%;
+    content: "Enter your number";
+
+}
+
+.btn2{
+    height: 50px;
+    width: 120px;
+    font-weight: 600;
+    border: 2px solid red;
+    margin: 0 auto;
+    display: block;
+    background: red;
+    color: white;
+    margin-top: 12px;
+}

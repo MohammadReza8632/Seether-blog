@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+            Email Sign-Up
+{% endblock %}
+{% load crispy_forms_tags %}
+{% block css_files %}
+            <link rel="stylesheet" href="{% static 'css/join-mailing-list.css' %}">
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="mailing-body">
+    <h1>GET EMAIL UPDATES</h1>
+    <h2>Join our mailing list to get the latest news, tour updates, release and more. You'll be the first to Know.</h2>
+    <br/>
+
+    <form action="" method="POST">{% csrf_token %}
+    <div class="F" >
+         {{ form.email }}
+    </div>
+
+    <input class="btn2" type="submit" value="SUBSCRIBE">
+    </form>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+</section>
+
+{% endblock content %}

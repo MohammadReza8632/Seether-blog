@@ -98,3 +98,6 @@ button:hover a{
 .img-fluid:hover{
     transform: scale(1.25);
 }
+.img-luid {
+  max-width: 100%;
+}

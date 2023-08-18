@@ -28,6 +28,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGOUT_REDIRECT_URL = '/seetherstore'
+LOGIN_REDIRECT_URL = '/seetherstore'
+LOGIN_URL = '/seetherstore/login'
+
+SESSION_COOKIE_AGE = 86400
+CART_SESSION_ID = 'cart'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "blog.apps.BlogConfig",
+    "cart.apps.CartConfig",
+    "seetherstore",
+    "order",
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -64,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },

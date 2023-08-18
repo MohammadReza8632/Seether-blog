@@ -1,10 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "store_base.html" %}
+{% load static %}
+{% block title %}
+            STORE | Seether
+{% endblock %}
+{% block css_files %}
+            <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+            <link rel="stylesheet" href="{% static 'css/store_base.css' %}">
+{% endblock %}
+{% block content %}
+ <div class="wrapper">
 
-</body>
-</html>
+      <form method="post" action="{% url 'start_order' %}">
+                   {% csrf_token %}
+        <h1>Checkout</h1>
+        <div class="project">
+            <section class="container forms">
+
+       <div class="form signup">
+           <div class="form-content">
+               <header>SHIPPING</header>
+                <hr>
+
+                   <div class="personal">
+                       <div class="field input-field">
+                           <input type="text" name="first_name" placeholder="Fist Name" class="input" value="{{ request.user.first_name }}">
+                       </div>
+
+                       <div class="field input-field">
+                           <input type="text" name="last_name" placeholder="Last Name" class="input" value="{{ request.user.last_name }}">
+                       </div>
+                    </div>
+
+                   <div class="field input-field">
+                       <input type="text" name="address" placeholder="Address" class="input">
+                   </div>
+
+                    <div class="personal">
+                       <div class="field input-field">
+                           <input type="text" name="zipcode" placeholder="Zip code" class="input">
+                       </div>
+
+                       <div class="field input-field">
+                           <input type="text" name="place" placeholder="City/Place" class="input">
+                       </div>
+                    </div>
+
+                   <div class="field input-field">
+                       <input type="email" name="email" placeholder="Email" class="input" value="{{ request.user.email }}">
+                   </div>
+
+                   <div class="field input-field">
+                       <input type="text" name="phone" placeholder="Telephone" class="password">
+                   </div>
+
+
+
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                                <p>{{ error|escape}}</p>
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                        {% for error in form.non_field_errors %}
+                        <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                            <p>{{ error|escape}}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                   <div class="field button-field">
+                       <button>NEXT:PAYMENT</button>
+                   </div>
+
+
+
+           </div>
+
+       </div>
+   </section>
+            <div class="right-bar">
+                <p><span>Subtotal</span> <span>${{ cart.get_total_cost }}</span></p>
+                <hr>
+                <button style="font-size: 1.7rem;color: red"><i class="fa fa-shopping-cart"></i> Confirm Checkout</button>
+            </div>
+        </div>
+      </form>
+    </div>
+{% endblock content %}
+
+

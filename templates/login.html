@@ -1,10 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "store_base.html" %}
+{% load static %}
+{% block title %}
+            STORE | Seether
+{% endblock %}
+{% block css_files %}
+            <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+            <link rel="stylesheet" href="{% static 'css/store_base.css' %}">
+{% endblock %}
+{% block content %}
+   <section class="container forms">
+       <div class="form login">
+           <div class="form-content">
+               <header>Login</header>
 
-</body>
-</html>
+               <form method="post" action="#">
+                   {% csrf_token %}
+                   <div class="field input-field">
+                       <input type="text" name="username" placeholder="User Name" class="input">
+                   </div>
+
+                   <div class="field input-field">
+                       <input type="password" name="password" placeholder="Password" class="password">
+                   </div>
+
+                     {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                                <p>{{ error|escape}}</p>
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                        {% for error in form.non_field_errors %}
+                        <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                            <p>{{ error|escape}}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+                   <div class="form-link">
+                       <a href="#" class="forget-pass">Forget password</a>
+                   </div>
+
+                   <div class="field button-field">
+                       <button>Login</button>
+                   </div>
+
+                   <div class="form-link">
+                       <span>Don't have an account? <a href="{% url 'signup' %}" class="signup-link">Signup</a></span>
+                   </div>
+               </form>
+
+           </div>
+
+       </div>
+   </section>
+{% endblock content %}
+
+

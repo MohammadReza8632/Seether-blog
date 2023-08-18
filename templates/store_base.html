@@ -1,10 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% load static %}
 
-</body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/store_base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com" ></script>
+    <link rel="syylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+      {% block css_files %}
+      <link rel="stylesheet" href="{% static 'css/store_base.css' %}">
+      {% endblock %}
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+
+  <body class="full-body">
+
+    <div class="wrapper">
+      <header>
+        <form class="search" method="get" action="{% url 'shop' %}">
+          <h1><a href="#">BACK TO SEETHER.COM</a></h1>
+         <input type="text" name="query" class="form-control" placeholder="Search">
+        </form>
+          <nav>
+            <ul>
+
+              {% if request.user.is_authenticated %}
+                <li>
+                <a href="{% url 'logout' %}" class="logout">Log Out</a>
+                </li>
+              {% endif %}
+
+
+              <li>
+                <a href="{% url 'myaccount' %}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-14 h-14">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg></a>
+              </li>
+              <div
+                  hx-get="{% url 'hx_menu_cart' %}"
+                  hx-trigger="update-menu-cart from:body"
+                  hx-swap="innerHTML"
+              >
+                <li>
+                  {% include 'menu_cart.html' %}
+                </li>
+               </div>
+            </ul>
+          </nav>
+      </header>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="side-bar">
+        <div class="close-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="menu">
+          <div class="item"><a href="{% url 'shop' %}">HOME</a></div>
+
+          {% for category in categories %}
+            {% if category.child_category == True %}
+
+            <div class="item">
+                    <a class="sub-btn">{{category.name}}<i class="fas fa-angle-right dropdown"></i></a>
+                    <div class="sub-menu">
+                      {% for sub_cat in sub_category %}
+                        {% if category.name|stringformat:"s" ==  sub_cat.parent_category|stringformat:"s" %}
+                        <a href="{% url 'shop' %}?category={{ sub_cat.slug }}" class="sub-item">{{sub_cat.name}}</a>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+            </div>
+
+            {% else %}
+            <div class="item"><a href="{% url 'shop' %}?category={{ category.slug }}">{{category.name}}</a></div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('.sub-btn').click(function(){
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
+          });
+
+          $('.menu-btn').click(function(){
+          $('.side-bar').addClass('active');
+          });
+
+          $('.close-btn').click(function(){
+          $('.side-bar').removeClass('active');
+          });
+        });
+
+      </script>
+
+      <div class="secondary-bar">
+            <center><a href="{% url 'store_home' %}"><img src="{% static 'css/img/Seether-Logo.png'%}" class="seether-logo " alt=""></a></center>
+      </div>
+
+    </div>
+
+  {% block content %}
+
+  {% endblock %}
+
+  <div class="footer">
+    <div class="left-col">
+      <center><img src="{% static 'css/img/Seether-Logo.png'%}" class="seether-logo-footer " alt=""></center>
+      <div class="social-media">
+        <div class="card card1">
+          <a href="#" class="fa fa-facebook"></a>
+        </div>
+
+        <div class="card card2">
+          <a href="#" class="fa fa-twitter"></a>
+        </div>
+
+        <div class="card card3">
+          <a href="#" class="fa fa-youtube"></a>
+        </div>
+
+        <div class="card card3">
+          <a href="#" class="fa fa-instagram"></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="right-col">
+     <div class="box">
+       <form action="">
+         <h2>SIGN UP FOR OUR NEWSLETTER</h2>
+
+         <input type="text" placeholder="Email">
+         <button type="submit">Subscribe</button>
+       </form>
+     </div>
+    </div>
+
+  </div>
+  <div class="terms">
+    <h1><a href="#">HELP AND FAQ </a>|<a href="#"> CONTACT US </a>|<a href="#"> COOKIES SETTINGS</a></h1>
+    <h1><a href="#">2023 SEETHER </a>|<a href="#">PRIVACY POLICY</a>|<a href="#"> TERMS OF USE </a></h1>
+  </div>
+  <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+  </body>
 </html>

@@ -58,7 +58,8 @@ a{
     height: 0;
     width: 300px;
     background: rgba(255, 255, 255, 0.1);
-    background-filter: blur(15px);
+    background-color: black;
+
     border-radius: 10px;
     overflow: hidden;
     transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);

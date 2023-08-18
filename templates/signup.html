@@ -1,10 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "store_base.html" %}
+{% load static %}
+{% block title %}
+            STORE | Seether
+{% endblock %}
+{% block css_files %}
+            <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+            <link rel="stylesheet" href="{% static 'css/store_base.css' %}">
+{% endblock %}
+{% block content %}
+   <section class="container forms">
+
+       <div class="form signup">
+           <div class="form-content">
+               <header>Signup</header>
+
+               <form method="post" action="#">
+                   {% csrf_token %}
+                   <div class="field input-field">
+                       <input type="text" name="username" placeholder="User Name" class="input">
+                   </div>
+
+                   <div class="field input-field">
+                       <input type="text" name="first_name" placeholder="Fist Name" class="input">
+                   </div>
+
+                   <div class="field input-field">
+                       <input type="text" name="last_name" placeholder="Last Name" class="input">
+                   </div>
+
+                   <div class="field input-field">
+                       <input type="email" name="email" placeholder="Email" class="input">
+                   </div>
+
+                   <div class="field input-field">
+                       <input type="password" name="password1" placeholder="Password" class="password">
+                   </div>
+
+                    <div class="field input-field">
+                       <input type="password" name="password2" placeholder="Confirm Password" class="password">
+                   </div>
+
+                    {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                                <p>{{ error|escape}}</p>
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                        {% for error in form.non_field_errors %}
+                        <div class="p-6 bg-red-200 text-red-800 rounded-xl">
+                            <p>{{ error|escape}}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                   <div class="field button-field">
+                       <button>Signup</button>
+                   </div>
+
+                   <div class="form-link">
+                       <span>Already have an account?  <a href="{% url 'login' %}" class="login-link">Login</a></span>
+                   </div>
+               </form>
+
+           </div>
+
+       </div>
+   </section>
+{% endblock content %}
+
+

@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from cart.views import add_to_cart, hx_menu_cart, update_cart, hx_cart_total
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path("", include("blog.urls")),
+                  path('add_to_cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
+                  path('update_cart/<int:product_id>/<str:action>/', update_cart, name='update_cart'),
+                  path('hx_menu_cart/', hx_menu_cart, name='hx_menu_cart'),
+                  path('hx_cart_total/', hx_cart_total, name='hx_cart_total'),
+                  path("seetherstore/", include("seetherstore.urls")),
+                  path("order/", include("order.urls")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
